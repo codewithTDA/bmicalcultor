@@ -127,16 +127,20 @@
         }
         var bmi = weight / (height * height);
   
-        document.getElementById('result').innerHTML = 'Your BMI is: ' + bmi.toFixed(2);
+        document.getElementById('result').innerHTML =  bmi.toFixed(2);
         var output = Math.round(bmi * 100) / 100
+        var comment = document.getElementById("comment");
                   if (output < 18.5)
-                      document.getElementById("comment").innerText = "Underweight";
+                      comment.innerText = "Underweight";
                   else if (output >= 18.5 && output <= 25)
-                      document.getElementById("comment").innerText = "Normal";
+                      comment.innerText = "Normal";
                   else if (output >= 25 && output <= 30)
                       document.getElementById("comment").innerText = "Obese";
-                  else if (output > 30)
-                      document.getElementById("comment").innerText = "Overweight";
+                  else if (output > 30){
+                    comment.innerText = "Overweight";
+                  }
+                 
+                    
                   // document.getElementById("answer").value = output; 
               }
     </script>
@@ -170,8 +174,11 @@
   </div>
 
   <button onclick="calculateBMI()">Calculate BMI</button>
-  <h2>Your BMI:</h2>
-<p id="result"></p>
+  <div>
+    
+  <h2 style="display: inline-block;" >Your BMI:</h2>
+  <p id="result" style="display: inline-block;"></p>
+  </div>
 
 <h2 style="color: blue;">This means you are: <span id="comment"> ?</span> </h2> 
 

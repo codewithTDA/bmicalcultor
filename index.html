@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=0,initial-scale=1.0">
   <title>BMI Calculator</title>
   <style>
     *{
@@ -44,13 +44,15 @@
     label{
       width: 100%;
     }
-    input,select{
+    input, select{
       border-radius: 4px solid white;
       box-sizing: border-box;  font-size: 12px;
                 width: 79%;
                 /* padding: 10px; */
-                padding: 4px 0px;
+                padding: 14px 0px;
                 outline: none;
+                height: 35px;
+                font-size: 2vw;
     }
     select{
       width: 20%;
@@ -83,6 +85,7 @@
                 /* max-width: 80%; */
                 /* max-height: 80%; */
                 font-size: 2vw;
+                border-radius: 0;
                }
                h1{
                 font-size: 8vw;
@@ -106,7 +109,7 @@
                 width: 20%;
                }
 }
-@media only screen and (max-height:400px) {
+@media only screen and (max-height:500px) {
   .container{
     /* min-height: 100%; */
     height: auto;
@@ -160,17 +163,17 @@
  <div class="content-wrapper">
   <h1>BMI Calculator</h1>
   <div class="weightDiv">
-    <label for="weight">Enter WeighDt (kg/lbs):</label><br>
+    <label for="weight">Enter Weight (kg/lbs):</label><br>
 <div class="inputW">
   <input type="number" id="weight" placeholder="Enter your weight" step="0.1" required>
    <select name="" type="multiple" id="weightUnits">
-    <option value="kg" selected>Kilograms</option>
+    <option value="kg" selected>Kg</option>
     <option value="lb">pounds</option>
   </select>
 </div>
   </div>
   <div class="heightDiv">
-    <label for="height">Height (Feet):</label><br>
+    <label for="height">Enter Height (Inches/cm):</label><br>
 <div class="inputH">
   <input type="number" id="height" placeholder="Enter your height" step="0.1" required>
   <select name="" type="multiple" id="heightUnits">

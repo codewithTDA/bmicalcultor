@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=0,initial-scale=1.0, minimum-scale=1,maximum-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>BMI Calculator</title>
   <style>
     *{
@@ -51,7 +51,7 @@
                 /* padding: 10px; */
                 padding: 14px 0px;
                 outline: none;
-                height: 35px;
+                height: 2vhpx;
                 font-size: 2vw;
     }
     select{
@@ -118,10 +118,13 @@
     border-radius: 0;
     
   }
-  input, select{
-    height: 35px;
-  }
+
 }
+@media only screen and (orientation:landscap){
+  input,select{
+    height: 2vh;
+  }
+} 
   </style>
     <script>
       function calculateBMI() {

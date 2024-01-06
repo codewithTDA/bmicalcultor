@@ -41,9 +41,19 @@
     h1{
       color: rgb(7, 69, 151);
     }
-    input{
+    label{
+      width: 100%;
+    }
+    input,select{
       border-radius: 4px solid white;
-      outline: none;
+      box-sizing: border-box;  font-size: 12px;
+                width: 79%;
+                /* padding: 10px; */
+                padding: 4px 0px;
+                outline: none;
+    }
+    select{
+      width: 20%;
     }
     button{
       background-color: #c4199f;
@@ -60,6 +70,12 @@
       font-family: 'Times New Roman', Times, serif;
 
     }
+    select{
+      float: right;
+    }
+    .inputH, .inputW{
+            display: flex;
+    }
 @media only screen and (orientation:portrait) {
                .container{
                 width: 100%;height: 100%;
@@ -74,16 +90,57 @@
                h2,p{
                 font-size: 7.5vw;
                }
-               input{
+               input,select{
                 font-size: 12px;
+                width: 79%;
+                /* padding: 10px; */
+                padding: 4px 0px;
+                outline: none;
                }
                button,label{
                 width: 100%;
-                font-size: 8vw;
+                font-size: 6vw;
                 font-weight: bold;
+               }
+               select{
+                width: 20%;
                }
 }
   </style>
+    <script>
+      function calculateBMI() {
+        var weight = parseFloat(document.getElementById('weight').value);
+        var height = parseFloat(document.getElementById('height').value); // Convert height to meters
+        var heightUnits = document.getElementById('heightUnits').value;
+        var weightUnits = document.getElementById('weightUnits').value;
+        if(heightUnits=='inches'){
+          height /= 39.3700787;
+        }
+        if(heightUnits=='cm'){
+          height = height*0.01;
+        }
+        if(weightUnits=='kg'){
+          weight=weight;
+        }
+        if(weightUnits == 'lb'){
+          weight =weight/2.20462
+        }
+        var bmi = weight / (height * height);
+  
+        document.getElementById('result').innerHTML = 'Your BMI is: ' + bmi.toFixed(2);
+        var output = Math.round(bmi * 100) / 100
+                  if (output < 18.5)
+                      document.getElementById("comment").innerText = "Underweight";
+                  else if (output >= 18.5 && output <= 25)
+                      document.getElementById("comment").innerText = "Normal";
+                  else if (output >= 25 && output <= 30)
+                      document.getElementById("comment").innerText = "Obese";
+                  else if (output > 30)
+                      document.getElementById("comment").innerText = "Overweight";
+                  // document.getElementById("answer").value = output; 
+              }
+    </script>
+  
 </head>
 <body>
 
@@ -91,33 +148,36 @@
  <div class="content-wrapper">
   <h1>BMI Calculator</h1>
   <div class="weightDiv">
-    <label for="weight">Weight (kg):</label><br>
+    <label for="weight">Enter WeighDt (kg/lbs):</label><br>
+<div class="inputW">
   <input type="number" id="weight" placeholder="Enter your weight" step="0.1" required>
+   <select name="" type="multiple" id="weightUnits">
+    <option value="kg" selected>Kilograms</option>
+    <option value="lb">pounds</option>
+  </select>
+</div>
   </div>
   <div class="heightDiv">
     <label for="height">Height (Feet):</label><br>
+<div class="inputH">
   <input type="number" id="height" placeholder="Enter your height" step="0.1" required>
+  <select name="" type="multiple" id="heightUnits">
+    <option value="cm" selected>cm</option>
+    <option value="inches">inches</option>
+  </select>
+</div>
+
   </div>
 
   <button onclick="calculateBMI()">Calculate BMI</button>
   <h2>Your BMI:</h2>
 <p id="result"></p>
 
+<h2 style="color: blue;">This means you are: <span id="comment"> ?</span> </h2> 
+
 
 </div>
 </div>
-  <script>
-    function calculateBMI() {
-      var weight = parseFloat(document.getElementById('weight').value);
-      var height = parseFloat(document.getElementById('height').value) *0.3048; // Convert height to meters
-      var bmi = weight / (height * height);
-
-      document.getElementById('result').innerHTML = 'Your BMI is: ' + bmi.toFixed(2);
-    }
-  
-
-
-  </script>
 
 </body>
 </html>

@@ -14,8 +14,9 @@
 
     body {
       width: 100vw;
-      height: 100vh;
+      max-height: 100vh;
       background-color: black;
+      
 
     }
 
@@ -138,15 +139,13 @@
       }
     }
 
-    @media only screen and (max-height:700px) {
+    @media only screen and (max-height:500px) {
       .container {
         /* min-height: 100%; */
         height: auto;
         /* height: min-content; */
         border-radius: 0;
-
       }
-
     }
 
     @media only screen and (orientation:landscap) {
@@ -154,6 +153,11 @@
       input,
       select {
         height: 2vh;
+      }
+    }
+    @media only screen and (max-height:800px){
+      .container{
+        height: auto;
       }
     }
   </style>

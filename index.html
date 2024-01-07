@@ -1,63 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>BMI Calculator</title>
   <style>
-    *{
-      padding: 0;margin: 0;
+    * {
+      padding: 0;
+      margin: 0;
       box-sizing: border-box;
     }
+
     body {
       width: 100vw;
       height: 100vh;
-      background-color:black;
-      
+      background-color: black;
+
     }
-    .container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        width: 70%; 
-        height: 70%;
-        position: absolute;
-        top: 50%;left: 50%;
-        transform: translate(-50%,-50%);
-        border: 2px solid rgb(255, 255, 255);
-        padding: 12px;
-        border-radius: 12px;
-        font-size: 3vw;
-        background-color: white;
-      }
-    
-    h1,h2{
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 70%;
+      height: 70%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgb(255, 255, 255);
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 3vw;
+      background-color: white;
+    }
+
+    h1,
+    h2 {
       font-size: 4vw;
       padding: 0;
       margin: 0;
     }
-    h1{
+
+    h1 {
       color: rgb(189, 96, 96);
     }
-    label{
+
+    label {
       width: 100%;
     }
-    input, select{
+
+    input,
+    select {
       border-radius: 4px solid white;
-      box-sizing: border-box;  font-size: 12px;
-                width: 79%;
-                /* padding: 10px; */
-                padding: 14px 0px;
-                outline: none;
-                height: 2vhpx;
-                font-size: 2vw;
+      box-sizing: border-box;
+      font-size: 12px;
+      width: 79%;
+      /* padding: 10px; */
+      padding: 14px 0px;
+      outline: none;
+      height: 2vhpx;
+      font-size: 2vw;
     }
-    select{
+
+    select {
       width: 20%;
     }
-    button{
+
+    button {
       background-color: rgb(235, 225, 225);
       outline: none;
       border: 1px solid rgb(190, 160, 160);
@@ -66,144 +79,185 @@
       padding: 3px 12px;
       cursor: pointer;
     }
-    button:hover{
+
+    button:hover {
       background-color: black;
-      color:white ;
+      color: white;
       font-family: 'Times New Roman', Times, serif;
 
     }
-    select{
+
+    select {
       float: right;
     }
-    .inputH, .inputW{
-            display: flex;
-    }
-@media only screen and (orientation:portrait) {
-               .container{
-                width: 100%;height: 100%;
-                /* margin: 20%; */
-                /* max-width: 80%; */
-                /* max-height: 80%; */
-                font-size: 2vw;
-                border-radius: 0;
-               }
-               h1{
-                font-size: 8vw;
-               }
-               h2,p{
-                font-size: 7.5vw;
-               }
-               input,select{
-                font-size: 12px;
-                width: 79%;
-                /* padding: 10px; */
-                padding: 4px 0px;
-                height: 35px;
-                outline: none;
-               }
-               button,label{
-                width: 100%;
-                font-size: 6vw;
-                font-weight: bold;
-               }
-               select{
-                width: 20%;
-               }
-}
-@media only screen and (max-height:500px) {
-  .container{
-    /* min-height: 100%; */
-    height: auto;
-    /* height: min-content; */
-    border-radius: 0;
-    
-  }
 
-}
-@media only screen and (orientation:landscap){
-  input,select{
-    height: 2vh;
-  }
-} 
+    .inputH,
+    .inputW {
+      display: flex;
+    }
+
+    @media only screen and (orientation:portrait) {
+      .container {
+        width: 100%;
+        height: 100%;
+        /* margin: 20%; */
+        /* max-width: 80%; */
+        /* max-height: 80%; */
+        font-size: 2vw;
+        border-radius: 0;
+      }
+
+      h1 {
+        font-size: 8vw;
+      }
+
+      h2,
+      p {
+        font-size: 7.5vw;
+      }
+
+      input,
+      select {
+        font-size: 12px;
+        width: 79%;
+        /* padding: 10px; */
+        padding: 4px 0px;
+        height: 35px;
+        outline: none;
+      }
+
+      button,
+      label {
+        width: 100%;
+        font-size: 6vw;
+        font-weight: bold;
+      }
+
+      select {
+        width: 20%;
+      }
+    }
+
+    @media only screen and (max-height:500px) {
+      .container {
+        /* min-height: 100%; */
+        height: auto;
+        /* height: min-content; */
+        border-radius: 0;
+
+      }
+
+    }
+
+    @media only screen and (orientation:landscap) {
+
+      input,
+      select {
+        height: 2vh;
+      }
+    }
   </style>
-    <script>
-      function calculateBMI() {
-        var weight = parseFloat(document.getElementById('weight').value);
-        var height = parseFloat(document.getElementById('height').value); // Convert height to meters
-        var heightUnits = document.getElementById('heightUnits').value;
-        var weightUnits = document.getElementById('weightUnits').value;
-        if(heightUnits=='inches'){
-          height /= 39.3700787;
+  <script>
+    function calculateBMI() {
+      var weight = parseFloat(document.getElementById('weight').value);
+      var height = parseFloat(document.getElementById('height').value); // Convert height to meters
+      var heightUnits = document.getElementById('heightUnits').value;
+      var weightUnits = document.getElementById('weightUnits').value;
+      if (heightUnits == 'inches') {
+        height /= 39.3700787;
+      }
+      if (heightUnits == 'cm') {
+        height = height * 0.01;
+      }
+      if (weightUnits == 'kg') {
+        weight = weight;
+      }
+      if (weightUnits == 'lb') {
+        weight = weight / 2.20462
+      }
+      var bmi = weight / (height * height);
+
+      document.getElementById('result').innerHTML = bmi.toFixed(2);
+      var output = Math.round(bmi * 100) / 100
+      var comment = document.getElementById("comment");
+      if (output < 18.5)
+        comment.innerText = "Underweight";
+      else if (output >= 18.5 && output <= 25)
+        comment.innerText = "Normal";
+      else if (output >= 25 && output <= 30)
+        document.getElementById("comment").innerText = "Obese";
+      else if (output > 30) {
+        comment.innerText = "Overweight";
+      }
+
+
+      // document.getElementById("answer").value = output; 
+
+
+      setTimeout(() => {
+        let ask = (question, yes, no) => {
+          if (confirm(question)) {
+            
+
+            return yes()
+          }
+          else {
+          return no();
         }
-        if(heightUnits=='cm'){
-          height = height*0.01;
-        }
-        if(weightUnits=='kg'){
-          weight=weight;
-        }
-        if(weightUnits == 'lb'){
-          weight =weight/2.20462
-        }
-        var bmi = weight / (height * height);
-  
-        document.getElementById('result').innerHTML =  bmi.toFixed(2);
-        var output = Math.round(bmi * 100) / 100
-        var comment = document.getElementById("comment");
-                  if (output < 18.5)
-                      comment.innerText = "Underweight";
-                  else if (output >= 18.5 && output <= 25)
-                      comment.innerText = "Normal";
-                  else if (output >= 25 && output <= 30)
-                      document.getElementById("comment").innerText = "Obese";
-                  else if (output > 30){
-                    comment.innerText = "Overweight";
-                  }
-                 
-                    
-                  // document.getElementById("answer").value = output; 
-              }
-    </script>
-  
+      }
+
+        ask(
+        "This is helpfull for you?",
+        function () { alert("Thanks"); },
+        function () { alert("We do it better"); }
+      );
+    }, 1000)
+
+    }
+  </script>
+
 </head>
+
 <body>
 
-<div class="container">
- <div class="content-wrapper">
-  <h1>BMI Calculator</h1>
-  <div class="weightDiv">
-    <label for="weight">Enter Weight (kg/lbs):</label><br>
-<div class="inputW">
-  <input type="number" id="weight" placeholder="Enter your weight" step="0.1" required>
-   <select name="" type="multiple" id="weightUnits">
-    <option value="kg" selected>Kg</option>
-    <option value="lb">pounds</option>
-  </select>
-</div>
+  <div class="container">
+    <div class="content-wrapper">
+      <h1>BMI Calculator</h1>
+      <div class="weightDiv">
+        <label for="weight">Enter Weight (kg/lbs):</label><br>
+        <div class="inputW">
+          <input type="number" id="weight" placeholder="Enter your weight" step="0.1" required>
+          <select name="" type="multiple" id="weightUnits">
+            <option value="kg" selected>Kg</option>
+            <option value="lb">pounds</option>
+          </select>
+        </div>
+      </div>
+      <div class="heightDiv">
+        <label for="height">Enter Height (Inches/cm):</label><br>
+        <div class="inputH">
+          <input type="number" id="height" placeholder="Enter your height" step="0.1" required>
+          <select name="" type="multiple" id="heightUnits">
+            <option value="cm" selected>cm</option>
+            <option value="inches">inches</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button onclick="calculateBMI()">Calculate BMI</button>
+      <div>
+
+        <h2 style="display: inline-block;">Your BMI:</h2>
+        <p id="result" style="display: inline-block;"></p>
+      </div>
+
+      <h2 style="color: rgb(180, 79, 93);">This means you are: <span id="comment"> ?</span> </h2>
+
+
+    </div>
   </div>
-  <div class="heightDiv">
-    <label for="height">Enter Height (Inches/cm):</label><br>
-<div class="inputH">
-  <input type="number" id="height" placeholder="Enter your height" step="0.1" required>
-  <select name="" type="multiple" id="heightUnits">
-    <option value="cm" selected>cm</option>
-    <option value="inches">inches</option>
-  </select>
-</div>
-
-  </div>
-
-  <button onclick="calculateBMI()">Calculate BMI</button>
-  <div>
-    
-  <h2 style="display: inline-block;" >Your BMI:</h2>
-  <p id="result" style="display: inline-block;"></p>
-  </div>
-
-<h2 style="color: rgb(180, 79, 93);">This means you are: <span id="comment"> ?</span> </h2> 
-
-
-</div>
-</div>
 
 </body>
+
 </html>

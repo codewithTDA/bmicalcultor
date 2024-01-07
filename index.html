@@ -16,7 +16,7 @@
       width: 100vw;
       max-height: 100vh;
       background-color: black;
-      
+
 
     }
 
@@ -65,6 +65,8 @@
       outline: none;
       height: 2vhpx;
       font-size: 2vw;
+      font-size: 20px !important;
+
     }
 
     select {
@@ -155,8 +157,9 @@
         height: 2vh;
       }
     }
-    @media only screen and (max-height:800px){
-      .container{
+
+    @media only screen and (max-height:800px) {
+      .container {
         height: auto;
       }
     }
@@ -201,21 +204,21 @@
       setTimeout(() => {
         let ask = (question, yes, no) => {
           if (confirm(question)) {
-            
+
 
             return yes()
           }
           else {
-          return no();
+            return no();
+          }
         }
-      }
 
         ask(
-        "This is helpfull for you?",
-        function () { alert("Thanks"); },
-        function () { alert("We do it better"); }
-      );
-    }, 1000)
+          "This is helpfull for you?",
+          function () { alert("Thanks"); },
+          function () { alert("We do it better"); }
+        );
+      }, 1000)
 
     }
   </script>

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <title>BMI Calculator</title>
   <style>
     * {
@@ -98,6 +99,13 @@
     .inputW {
       display: flex;
     }
+    #Message1,#Message2{
+      color: red;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.7vw;
+      
+    }
 
     @media only screen and (orientation:portrait) {
       .container {
@@ -139,6 +147,9 @@
       select {
         width: 20%;
       }
+      #Message1,#Message2{
+        font-size: 3vw;
+      }
     }
 
     @media only screen and (max-height:500px) {
@@ -163,13 +174,26 @@
         height: auto;
       }
     }
+ 
   </style>
   <script>
     function calculateBMI() {
+      var w = document.getElementById('weight').value;
       var weight = parseFloat(document.getElementById('weight').value);
-      var height = parseFloat(document.getElementById('height').value); // Convert height to meters
+      var h =document.getElementById('height').value; 
+      var height = parseFloat(document.getElementById('height').value); 
       var heightUnits = document.getElementById('heightUnits').value;
       var weightUnits = document.getElementById('weightUnits').value;
+      
+      if(w == ""){
+        document.getElementById("Message1").innerHTML="* please fill this box";
+        return false;
+      }
+      else if(h == ""){
+        document.getElementById("Message2").innerHTML="* please fill this box";
+        return false;
+      }
+      
       if (heightUnits == 'inches') {
         height /= 39.3700787;
       }
@@ -201,24 +225,24 @@
       // document.getElementById("answer").value = output; 
 
 
-      setTimeout(() => {
-        let ask = (question, yes, no) => {
-          if (confirm(question)) {
+      // setTimeout(() => {
+      //   let ask = (question, yes, no) => {
+      //     if (confirm(question)) {
 
 
-            return yes()
-          }
-          else {
-            return no();
-          }
-        }
+      //       return yes()
+      //     }
+      //     else {
+      //       return no();
+      //     }
+      //   }
 
-        ask(
-          "This is helpfull for you?",
-          function () { alert("Thanks"); },
-          function () { alert("We do it better"); }
-        );
-      }, 1000)
+      //   ask(
+      //     "This is helpfull for you?",
+      //     function () { alert("Thanks"); },
+      //     function () { alert("We do it better"); }
+        // );
+      // }, 1000)
 
     }
   </script>
@@ -232,6 +256,7 @@
       <h1>BMI Calculator</h1>
       <div class="weightDiv">
         <label for="weight">Enter Weight (kg/lbs):</label><br>
+        <p id="Message1" ></p>
         <div class="inputW">
           <input type="number" id="weight" placeholder="Enter your weight" step="0.1" required>
           <select name="" type="multiple" id="weightUnits">
@@ -242,6 +267,8 @@
       </div>
       <div class="heightDiv">
         <label for="height">Enter Height (Inches/cm):</label><br>
+        <p id="Message2" ></p>
+
         <div class="inputH">
           <input type="number" id="height" placeholder="Enter your height" step="0.1" required>
           <select name="" type="multiple" id="heightUnits">
@@ -252,7 +279,7 @@
 
       </div>
 
-      <button onclick="calculateBMI()">Calculate BMI</button>
+      <button onclick="return calculateBMI() ">Calculate BMI</button>
       <div>
 
         <h2 style="display: inline-block;">Your BMI:</h2>

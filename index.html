@@ -199,6 +199,20 @@
       else{
         document.getElementById("Message2").innerHTML="";
       }
+      if(w <0){
+        document.getElementById("Message1").innerHTML="* Weight must be greter than 0";
+        return false;
+      }
+      else{
+        document.getElementById("Message1").innerHTML="";
+      }
+       if(h < 0){
+        document.getElementById("Message2").innerHTML="* Height must be greter than 0";
+        return false;
+      }
+      else{
+        document.getElementById("Message2").innerHTML="";
+      }
       
       if (heightUnits == 'inches') {
         height /= 39.3700787;

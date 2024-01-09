@@ -192,6 +192,13 @@
       else{
         document.getElementById("Message1").innerHTML="";
       }
+      if(w <=0){
+        document.getElementById("Message1").innerHTML="* Weight must be greter than 0";
+        return false;
+      }
+      else{
+        document.getElementById("Message1").innerHTML="";
+      }
        if(h == ""){
         document.getElementById("Message2").innerHTML="* Please Enter your Height";
         return false;
@@ -199,14 +206,7 @@
       else{
         document.getElementById("Message2").innerHTML="";
       }
-      if(w <0){
-        document.getElementById("Message1").innerHTML="* Weight must be greter than 0";
-        return false;
-      }
-      else{
-        document.getElementById("Message1").innerHTML="";
-      }
-       if(h < 0){
+       if(h <=0 ){
         document.getElementById("Message2").innerHTML="* Height must be greter than 0";
         return false;
       }
@@ -242,27 +242,7 @@
       }
 
 
-      // document.getElementById("answer").value = output; 
-
-
-      // setTimeout(() => {
-      //   let ask = (question, yes, no) => {
-      //     if (confirm(question)) {
-
-
-      //       return yes()
-      //     }
-      //     else {
-      //       return no();
-      //     }
-      //   }
-
-      //   ask(
-      //     "This is helpfull for you?",
-      //     function () { alert("Thanks"); },
-      //     function () { alert("We do it better"); }
-        // );
-      // }, 1000)
+    
 
     }
   </script>

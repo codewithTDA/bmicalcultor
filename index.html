@@ -189,9 +189,15 @@
         document.getElementById("Message1").innerHTML="* Please enter your Weight";
         return false;
       }
-      else if(h == ""){
+      else{
+        document.getElementById("Message1").innerHTML="";
+      }
+       if(h == ""){
         document.getElementById("Message2").innerHTML="* Please Enter your Height";
         return false;
+      }
+      else{
+        document.getElementById("Message2").innerHTML="";
       }
       
       if (heightUnits == 'inches') {
